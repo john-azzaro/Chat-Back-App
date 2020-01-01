@@ -73,7 +73,19 @@ Phase X: Add intitial Application UI
 * Building out the initial structure of the application UI.
 =============================================================================================
 
-  // 
+  // Add the initial HTML application structure...
+    * Based on what we want to do with our base application, we want to display
+      our messages that each user writes, have a input box for users to writes
+      thier messages, and a button to send the messages.
+
+      X.1: Add HTML:
+        --------------------------------------------------------------
+            <div id="message-container"></div>                              -- Container that all messages sent will be added in this div.
+            <form id="send-container"action="">                             -- Form that submits to the server...
+              <input type="text" id="message-input">                        -- Input field for message...
+              <button type="submit" id="send-button">Send</button>          -- Button that will submit message.
+            </form>
+        --------------------------------------------------------------
 
 
 
