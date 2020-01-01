@@ -164,24 +164,66 @@ Phase 5: Get message form when you submit message
       -------------------------------------------------------------------
 
   // Then get the message...
-
     5.3: Get message element:
       -----------------------------------------------------------------
           const messageInput = document.getElementById('message-input');
       -----------------------------------------------------------------
 
-        5.2: Then in the event listener, get the messageInput value and send that info to the server.
+    5.4: Then in the event listener, get the messageInput value and send that info to the server.
       -------------------------------------------------------------------
           messageForm.addEventListener('submit', function(event) {
             event.preventDefault();                                            
-            const message = messageInput.value                                 -- gets the value of messageInput
-            socket.emit('')                                                    -- sends information form the client to the server.
+            const message = messageInput.value;                                 -- gets the value of messageInput
+            socket.emit('send-chat-message', message);                          -- sends information form the client to the server.
+            messageInput.value = '';                                            -- reset messageInput field to empty string so it is blank    
           })
       -------------------------------------------------------------------
 
+  // Then setup handling for the submission event...
+    5.5: In server.js, 
+      * so when the event "send-chat-message" is sent, we "broadcast" that message to everyone
+        else in the room.
+      * We can also take away the testing log messages as well.
+        ----------------------------------------------------------------
+            const io = require('socket.io')(3000);
+
+            io.on('connection', function(socket) {
+              socket.on('send-chat-message', function(message) {
+                socket.broadcast.emit('chat-message', message);
+              });
+            });
+        ----------------------------------------------------------------
 
 
 
+
+
+Phase 6: Append the chat messages in the window
+  * When we append the messages, what we want to do is stack the messages above the submission form so that
+    we can see the progression of the conversation.
+
+    6.1: To append, create a function that appends each message sent.
+      * This is in scripts.js
+      -----------------------------------------------------------
+          function appendMessage(message) {
+            const messageElement = document.createElement('div');           // messageElement creates a div.
+            messageElement.innerText = message                              // the value of messageElement is going to be the message.
+            messageContainer.append(messageElement)                         // and append to the viewport.
+          }
+      -----------------------------------------------------------
+
+    6.2: But for this to work, you need to select "message-container"
+      --------------------------------------------------------------
+          const messageContainer = document.getElementById('message-container');
+      --------------------------------------------------------------
+
+
+    6.3: Then call the appendMessage in the socket.on with the data
+      ---------------------------------------------------------------
+          socket.on('chat-message', data => {
+            appendMessage(data);
+          });
+      ---------------------------------------------------------------
 
 
 
