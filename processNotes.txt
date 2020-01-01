@@ -69,27 +69,7 @@ Phase 1: Project Setup
 
 
 
-Phase 2: Create express app
-=============================================================================================================
-  * Create express application, import initial "set" configuration settings and middlewares.
-=============================================================================================================
-
-    // Setup express application...
-        * When you import libraries, you are essentially importing the 
-          packages you have installed via npm. To use exprees, you simply 
-          need to load it and instantiate it.
-
-        2.1: Setup express:
-            ---------------------------------------------------------
-                    const express = require('express');                     -- Imports express from express library.
-                    const app = express();                                  -- Get the app portion from the express librrary to instantiate the app.
-            ---------------------------------------------------------      
-
-
-
-
-
-Phase X: Adding Application Specific Dependencies
+Phase 2: Adding Application Specific Dependencies
 ============================================================================================
 * Every app will be different and thus need their own specific libraries/dependencies to 
   function. In the case of this app, we want to use a library called socket.io, which will
@@ -97,11 +77,38 @@ Phase X: Adding Application Specific Dependencies
 ============================================================================================
 
   // Install project-specific dependencies:
-    X.1: Install socket.io
+    2.1: Install socket.io
       * For more information, see official documentation: https://socket.io/
         ------------------------------------------------------------------
             npm install socket.io
         ------------------------------------------------------------------
+
+
+
+
+Phase 3: Create a socket.io server
+===============================================================================================
+* Unlike express apps where you would require express and instantiate the app, for this project
+  pass the port number to the socket.io require.
+=============================================================================================== 
+
+  // Create a socket.io server:
+    * To create a socket.io server, you need to load the library and then pass the port we want 
+      to socket.io's require.
+        -------------------------------------------------------
+            const io = require('socket.io')(3000);
+        -------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
 
 
 
