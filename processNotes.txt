@@ -68,8 +68,12 @@ Phase 1: Project Setup
 
 
 
-Phase 2: 
+Phase X: Add intitial Application UI
+=============================================================================================
+* Building out the initial structure of the application UI.
+=============================================================================================
 
+  // 
 
 
 
