@@ -68,6 +68,27 @@ Phase 1: Project Setup
 
 
 
+
+Phase 2: Create express app
+=============================================================================================================
+  * Create express application, import initial "set" configuration settings and middlewares.
+=============================================================================================================
+
+    // Setup express application...
+        * When you import libraries, you are essentially importing the 
+          packages you have installed via npm. To use exprees, you simply 
+          need to load it and instantiate it.
+
+        2.1: Setup express:
+            ---------------------------------------------------------
+                    const express = require('express');                     -- Imports express from express library.
+                    const app = express();                                  -- Get the app portion from the express librrary to instantiate the app.
+            ---------------------------------------------------------      
+
+
+
+
+
 Phase X: Adding Application Specific Dependencies
 ============================================================================================
 * Every app will be different and thus need their own specific libraries/dependencies to 
