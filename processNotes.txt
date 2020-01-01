@@ -56,7 +56,7 @@ Phase 1: Project Setup
         1.4:  .gitignore > node_modules                           -- Tell git to ignore node_modules folder.
 
     // Install development environment:       
-        1.5:  npm install --save-dev dotenv nodemon               -- Install development enviroment.
+        1.5:  npm install --save-dev nodemon                      -- Install development enviroment.
 
     // Create custom "devStart" script in package.json:     
         1.6:  "devStart": "nodemon server.js"                     -- Run development environment (npm run devStart).
@@ -64,6 +64,23 @@ Phase 1: Project Setup
         
     // Add server.js file:       
         1.8:   server.js                                          -- Create main server file.
+
+
+
+
+Phase X: Adding Application Specific Dependencies
+============================================================================================
+* Every app will be different and thus need their own specific libraries/dependencies to 
+  function. In the case of this app, we want to use a library called socket.io, which will
+  allow us to use the chat functionality.
+============================================================================================
+
+  // Install project-specific dependencies:
+    X.1: Install socket.io
+      * For more information, see official documentation: https://socket.io/
+        ------------------------------------------------------------------
+            npm install socket.io
+        ------------------------------------------------------------------
 
 
 
