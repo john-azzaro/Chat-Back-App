@@ -4,9 +4,14 @@ Process Notes for Chat Back App
 
 
 
-Process Notes
+About Process Notes
 =============
-
+"Process Notes" is a step-by-step workflow document that outlines the "phases" of app development and the successive steps
+for each phase. Although documenting each step of the application development from start to finish is a bit more work, it 
+has proven EXTREMELY valuable in bug hunting and ESPECIALLY refining workflow for future use. If you've seen my other projects
+and process notes, you'll notice that the process notes evolve as I find ways to improve the documentation for content
+and readability. In the case of the "issue index app", each phase has a title, brief description of the phase, individual steps
+for each phase (with notes and intent), and notes at the end.
 
 
 
@@ -14,7 +19,10 @@ Process Notes
 
 Objective and User Story
 ========================
-
+The objective of this application is to create a multi-user chat room with custom rooms for users. When the user 
+arrives, they will be able to either create a room or join a room. If the user creates a room of thier own, they 
+will be prompted to input the name of the room and then the room will be created. The room will be listed on the 
+main page and 
 
 
 
