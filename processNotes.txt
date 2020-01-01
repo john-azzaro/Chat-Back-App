@@ -100,15 +100,84 @@ Phase 3: Create a socket.io server
         -------------------------------------------------------
 
   // Establish user connection action:
-    * When a user visit the website, the function "socket" is called.
+    * When a user visit the website, the function is called (with socket passed as a parameter).
+    * In essence, each new user is going to have thier own socket.
+    * In the case of this socket, we are going to send a message to the user via socket.emit.
         ---------------------------------------------------------
-            
+            io.on('connection', function(socket) {
+              console.log('new user');
+              socket.emit('chat-message', 'Hello world')               -- event name is "chat-message" and the data is "hello world".
+            });
         ---------------------------------------------------------
 
 
 
 
 
+Phase 4: Create a client-side file for sockets
+=============================================================================================
+  * This is going to setup the socket in script.js
+=============================================================================================
+  // Create a script.js for client side js;
+    4.1: Create script.js:
+      ---------------------------------------------------
+          script.js
+      ---------------------------------------------------
+  
+  // Get the socket variable
+    4.2: Get the socket variable in script.js 
+      ----------------------------------------------------
+          const socket = io('http://localhost:3000');              -- this is where the server is hosting the socket.io application.
+      ----------------------------------------------------
+
+  // 4.3: 
+    * On an event of "chat-message", we want to call the function with the data that was sent down from the server.
+      -------------------------------------------------
+          socket.on('chat-message', data => {
+            console.log(data);
+          });
+      -------------------------------------------------
+
+
+
+
+
+Phase 5: Get message form when you submit message
+===================================================================================================
+  * Initial part of the functionality of the chat application when you send a message.
+===================================================================================================
+  
+  // Select the message-container in the DOM:
+    5.1: Create a selector for messageForm
+      -------------------------------------------------------------------
+          const messageForm = document.getElementById('send-container');
+      --------------------------------------------------------------------
+
+  // Add event listener
+    * What this is going to do is that every time we submit the form (i.e. press the submit button),
+    5.2: Add an event listne for messageForm:
+      -------------------------------------------------------------------
+          messageForm.addEventListener('submit', function(event) {
+            event.preventDefault();                                           -- stop form from submitting/stop page from posting to the server/refreshing.
+
+          })
+      -------------------------------------------------------------------
+
+  // Then get the message...
+
+    5.3: Get message element:
+      -----------------------------------------------------------------
+          const messageInput = document.getElementById('message-input');
+      -----------------------------------------------------------------
+
+        5.2: Then in the event listener, get the messageInput value and send that info to the server.
+      -------------------------------------------------------------------
+          messageForm.addEventListener('submit', function(event) {
+            event.preventDefault();                                            
+            const message = messageInput.value                                 -- gets the value of messageInput
+            socket.emit('')                                                    -- sends information form the client to the server.
+          })
+      -------------------------------------------------------------------
 
 
 
