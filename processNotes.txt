@@ -99,6 +99,12 @@ Phase 3: Create a socket.io server
             const io = require('socket.io')(3000);
         -------------------------------------------------------
 
+  // Establish user connection action:
+    * When a user visit the website, the function "socket" is called.
+        ---------------------------------------------------------
+            
+        ---------------------------------------------------------
+
 
 
 
