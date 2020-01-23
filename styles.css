@@ -16,7 +16,7 @@ body {
 }
 
 #message-container div:nth-child(2n) {
-  background-color: #FFF;
+  background-color: rgb(240, 239, 239);
 }
 
 #send-container {
