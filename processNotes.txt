@@ -251,6 +251,4 @@ Phase X: Add intitial Application UI
 
 
 
-
-
-Phase 3: 
+-- Did a blitz on the app, will added process notes at a later time and do some styling tweaks later.
